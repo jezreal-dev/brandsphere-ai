@@ -23,9 +23,9 @@ export default function RootLayout({
               <div className="flex items-center space-x-8">
                 <span className="font-bold text-xl text-white tracking-tight">BrandSphere AI</span>
                 <div className="hidden md:flex space-x-4">
-                  <a href="http://localhost:3001" className="text-indigo-200 hover:text-white px-3 py-2 rounded-md font-medium transition">1. LocaSync</a>
-                  <a href="http://localhost:3002" className="bg-indigo-800 text-white px-3 py-2 rounded-md font-medium shadow-inner">2. BrandSphere AI</a>
-                  <a href="http://localhost:3003" className="text-indigo-200 hover:text-white px-3 py-2 rounded-md font-medium transition">3. SupportShield AI</a>
+                  <a href="https://locasync.vercel.app" className="text-indigo-200 hover:text-white px-3 py-2 rounded-md font-medium transition">1. LocaSync</a>
+                  <a href="https://brandsphere-ai.vercel.app" className="bg-indigo-800 text-white px-3 py-2 rounded-md font-medium shadow-inner">2. BrandSphere AI</a>
+                  <a href="#" className="text-indigo-200 hover:text-white px-3 py-2 rounded-md font-medium transition">3. SupportShield AI</a>
                 </div>
               </div>
             </div>
