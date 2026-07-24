@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f172a; /* Slate 900 */
+  --foreground: #f8fafc; /* Slate 50 */
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Dark modern gradient background */
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 shadow-2xl;
+  }
+  
+  .glass-input {
+    @apply bg-slate-800/50 border border-slate-700/50 text-slate-100 focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 outline-none transition-all placeholder-slate-400;
+  }
+
+  /* Custom markdown prose styling to make the AI output look premium in dark mode */
+  .prose-dark {
+    @apply text-slate-300;
+  }
+  .prose-dark h1, .prose-dark h2, .prose-dark h3, .prose-dark h4 {
+    @apply text-slate-100 font-semibold tracking-tight;
+  }
+  .prose-dark strong {
+    @apply text-slate-200 font-bold;
+  }
+  .prose-dark a {
+    @apply text-indigo-400 hover:text-indigo-300 underline;
+  }
+  .prose-dark ul {
+    @apply list-disc list-outside ml-5;
+  }
+  .prose-dark ol {
+    @apply list-decimal list-outside ml-5;
+  }
+  .prose-dark li {
+    @apply my-1;
+  }
+  .prose-dark table {
+    @apply w-full border-collapse my-4 text-sm;
+  }
+  .prose-dark th {
+    @apply border-b border-slate-700 pb-2 text-left text-slate-100 font-semibold;
+  }
+  .prose-dark td {
+    @apply border-b border-slate-800 py-3 text-slate-300;
+  }
+  .prose-dark blockquote {
+    @apply border-l-4 border-indigo-500/50 pl-4 italic text-slate-400;
+  }
+  .prose-dark code {
+    @apply bg-slate-800/50 text-indigo-300 px-1.5 py-0.5 rounded text-sm font-mono border border-slate-700/50;
+  }
+
+  /* Toast Animation */
+  .animate-slide-in {
+    animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-slide-out {
+    animation: slideOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
 }
